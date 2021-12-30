@@ -1,0 +1,21 @@
+###### 设置项目启动端口号
+server:
+  port: 9999
+spring:
+  application:
+    name: doctor-registry
+  ####### 开启 Spring Boot Bean id Override 机制
+  main:
+    allow-bean-definition-overriding: true
+##### 配置 Eureka Server 信息
+eureka:
+  ##### 配置 Server 主机名
+  instance:
+    hostname: localhost
+  ##### 配置 Client 连接信息
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    ##### 设置其他 Client 连接注册中心地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
